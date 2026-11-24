@@ -1,0 +1,15 @@
+stage: s04
+name: std_kd_tune
+condition: std_kd
+tasks: [sst2, ynat]
+budgets: [2000]
+seeds: tune
+requires: [splits, pretrained, teacher_logits, gate]
+grid:
+  T: [2, 4]
+  lam: [0.5, 1.0]
+fixed: {gamma: 0, beta: 0, weight_norm: none}
+test_inference: false
+select:
+  name: std_kd
+  params: [T, lam]

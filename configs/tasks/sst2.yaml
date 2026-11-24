@@ -1,0 +1,15 @@
+task: sst2
+language: en
+hf_dataset: nyu-mll/glue
+hf_config: sst2
+text_field: sentence
+label_field: label
+train_split: train
+val_split: validation
+num_labels: 2
+label_names: [negative, positive]
+primary_metric: accuracy
+secondary_metric: macro_f1
+checkpoint: google-bert/bert-base-uncased
+checkpoint_fallback: bert-base-uncased
+official_sizes: {train: 67349, validation: 872}

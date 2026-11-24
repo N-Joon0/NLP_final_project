@@ -1,0 +1,13 @@
+stage: s07
+name: conf_kd
+condition: conf_kd
+tasks: [sst2, ynat]
+budgets: [2000, 5000, 10000]
+seeds: base
+requires: [splits, pretrained, teacher_logits, {selected: std_kd}, {selected: conf_kd}]
+fixed: {beta: 0, weight_norm: none}
+fixed_from_selected:
+  T: std_kd.T
+  lam: std_kd.lambda
+  gamma: conf_kd.gamma
+test_inference: true

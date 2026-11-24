@@ -1,0 +1,9 @@
+stage: s03
+name: student_ft
+condition: student_ft
+tasks: [sst2, ynat]
+budgets: [2000, 5000, 10000]
+seeds: base
+requires: [splits, pretrained]
+fixed: {lam: 0}
+test_inference: true

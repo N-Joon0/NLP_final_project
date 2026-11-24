@@ -1,0 +1,14 @@
+stage: s10
+name: ours_norm
+condition: ours_norm
+tasks: [sst2, ynat]
+budgets: [2000, 5000, 10000]
+seeds: base
+requires: [splits, pretrained, teacher_logits, {selected: std_kd}, {selected: ours}]
+fixed: {weight_norm: batch_mean}
+fixed_from_selected:
+  T: std_kd.T
+  lam: std_kd.lambda
+  gamma: ours.gamma
+  beta: ours.beta
+test_inference: true

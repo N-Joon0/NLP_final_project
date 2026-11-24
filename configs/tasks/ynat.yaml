@@ -1,0 +1,15 @@
+task: ynat
+language: ko
+hf_dataset: klue/klue
+hf_config: ynat
+text_field: title
+label_field: label
+train_split: train
+val_split: validation
+num_labels: 7
+label_names: [IT과학, 경제, 사회, 생활문화, 세계, 스포츠, 정치]
+primary_metric: macro_f1
+secondary_metric: accuracy
+checkpoint: klue/bert-base
+checkpoint_fallback: null
+official_sizes: {train: 45678, validation: 9107}

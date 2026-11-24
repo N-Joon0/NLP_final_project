@@ -1,0 +1,31 @@
+n_layers: 6
+seeds: [13, 42, 87]
+tune_seed: 42
+teacher_seed: 42
+split_seed: 0
+
+data:
+  budgets: [2000, 5000, 10000]
+  dev_fraction: 0.5
+
+train:
+  lr: 2.0e-5
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  batch_size: 32
+  max_length: 128
+  grad_clip: 1.0
+  teacher_epochs: 3
+  student_epochs: 5
+  precision: auto
+  log_every: 50
+
+eval:
+  ece_bins: 15
+  bootstrap_B: 10000
+  bootstrap_seed: 0
+
+gpu:
+  world_size: 4
+  default_ids: "0,1,2,3"
+  min_micro_batch: 4

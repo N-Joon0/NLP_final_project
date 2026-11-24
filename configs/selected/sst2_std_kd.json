@@ -1,0 +1,45 @@
+{
+ "task": "sst2",
+ "condition": "std_kd",
+ "stage": "s04",
+ "primary_metric": "dev accuracy",
+ "dev_score": 0.8256880733944955,
+ "selected_run_id": "sst2__std_kd__n2000__s42__T2_l1.0_g0_b0_none",
+ "created": "2026-11-24 04:20:45",
+ "table": [
+  {
+   "order": 0,
+   "run_id": "sst2__std_kd__n2000__s42__T2_l0.5_g0_b0_none",
+   "dev_score": 0.823394495412844,
+   "best_epoch": 4,
+   "T": 2,
+   "lam": 0.5
+  },
+  {
+   "order": 1,
+   "run_id": "sst2__std_kd__n2000__s42__T2_l1.0_g0_b0_none",
+   "dev_score": 0.8256880733944955,
+   "best_epoch": 5,
+   "T": 2,
+   "lam": 1.0
+  },
+  {
+   "order": 2,
+   "run_id": "sst2__std_kd__n2000__s42__T4_l0.5_g0_b0_none",
+   "dev_score": 0.8256880733944955,
+   "best_epoch": 5,
+   "T": 4,
+   "lam": 0.5
+  },
+  {
+   "order": 3,
+   "run_id": "sst2__std_kd__n2000__s42__T4_l1.0_g0_b0_none",
+   "dev_score": 0.823394495412844,
+   "best_epoch": 5,
+   "T": 4,
+   "lam": 1.0
+  }
+ ],
+ "T": 2,
+ "lambda": 1.0
+}

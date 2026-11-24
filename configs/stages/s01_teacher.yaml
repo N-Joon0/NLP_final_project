@@ -1,0 +1,8 @@
+stage: s01
+name: teacher
+condition: teacher
+tasks: [sst2, ynat]
+budgets: [full]
+seeds: teacher
+requires: [splits, pretrained]
+test_inference: true

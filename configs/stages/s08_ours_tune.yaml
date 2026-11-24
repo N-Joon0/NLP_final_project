@@ -1,0 +1,18 @@
+stage: s08
+name: ours_tune
+condition: ours
+tasks: [sst2, ynat]
+budgets: [2000]
+seeds: tune
+requires: [splits, pretrained, teacher_logits, {selected: std_kd}]
+grid:
+  gamma: [0.5, 1, 2]
+  beta: [0.5, 1]
+  weight_norm: [none]
+fixed_from_selected:
+  T: std_kd.T
+  lam: std_kd.lambda
+test_inference: false
+select:
+  name: ours
+  params: [gamma, beta]

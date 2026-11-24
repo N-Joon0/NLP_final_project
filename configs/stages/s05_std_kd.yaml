@@ -1,0 +1,12 @@
+stage: s05
+name: std_kd
+condition: std_kd
+tasks: [sst2, ynat]
+budgets: [2000, 5000, 10000]
+seeds: base
+requires: [splits, pretrained, teacher_logits, {selected: std_kd}]
+fixed: {gamma: 0, beta: 0, weight_norm: none}
+fixed_from_selected:
+  T: std_kd.T
+  lam: std_kd.lambda
+test_inference: true

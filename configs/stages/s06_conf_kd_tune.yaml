@@ -1,0 +1,17 @@
+stage: s06
+name: conf_kd_tune
+condition: conf_kd
+tasks: [sst2, ynat]
+budgets: [2000]
+seeds: tune
+requires: [splits, pretrained, teacher_logits, {selected: std_kd}]
+grid:
+  gamma: [0.5, 1, 2]
+fixed: {beta: 0, weight_norm: none}
+fixed_from_selected:
+  T: std_kd.T
+  lam: std_kd.lambda
+test_inference: false
+select:
+  name: conf_kd
+  params: [gamma]
